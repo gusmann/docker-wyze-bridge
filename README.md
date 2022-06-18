@@ -28,7 +28,7 @@ You can view your stream by visiting: `http://localhost:8888/cam-nickname` where
 
 See [basic usage](#basic-usage) for additional information.
 
-## Changes in v1.6.0
+## Changes in v1.7.0
 
 Some wyze cams have have a built-in http server "boa" that is enabled when downloading a time lapse from the camera. By enabling this http server, we can have full access to the SD card on the camera, so you can download whatever you need off the SD card without having to take each camera down.
 
@@ -41,7 +41,6 @@ PLEASE NOTE: If enabled, anyone on your local network will be able to access/dow
 - **NEW**: ✨ ENV: `PULL_ALARM` - Download latest alarm file from camera and notify via MQTT if available.
 - **NEW**: ✨ ENV: `MOTION_HTTP` - Make a Webhook/HTTP request to any url on motion, e.g., `http://localhost/triggerMotion?cam={cam_name}`.
 - **NEW**: ✨ ENV: `MOTION_COOLDOWN` - Number of seconds to keep the motion flag set to true before resetting it.
-
 
 
 [View previous changes](https://github.com/mrlt8/docker-wyze-bridge/releases)
@@ -193,13 +192,13 @@ Replace localhost with the hostname or ip of the machine running the bridge:
 
 Two-factor authentication ("Two-Step Verification" in the wyze app) is supported and will automatically be detected, however additional steps are required to enter your verification code.
 
-- Echo the verification code directly to `/tokens/mfa_token` by opening a second terminal window and using:
+- Echo the verification code directly to `/tokens/mfa_token.txt` by opening a second terminal window and using:
 
   ```bash
-  docker exec -it wyze-bridge sh -c 'echo "123456" > /tokens/mfa_token'
+  docker exec -it wyze-bridge sh -c 'echo "123456" > /tokens/mfa_token.txt'
   ```
 
-- Mount `/tokens/` locally and add your verification code to a file named `mfa_token`:
+- Mount `/tokens/` locally and add your verification code to a file named `mfa_token.txt`:
 
   ```YAML
   volumes:
@@ -219,7 +218,7 @@ Two-factor authentication ("Two-Step Verification" in the wyze app) is supported
   Use the console to echo your code to the container:
 
   ```bash
-  echo "123456" > /tokens/mfa_token
+  echo "123456" > /tokens/mfa_token.txt
   ```
 
 ## Advanced Options

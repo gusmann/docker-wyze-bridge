@@ -1,3 +1,29 @@
+## Changes in v1.6.4
+
+- **IMPROVED**: Reliability of dragging/sorting cameras in Web-UI. Thanks @dsheehan!
+- **NEW**: Version check on footer of Web-UI.
+- **FIXED**: Static files for Web-UI in Home Assistant.
+
+## Changes in v1.6.3
+
+- **Fixed**: x264 rotation could cause issues with HLS and RTMP. #428 #431 Thanks @jamescochran!
+
+## Changes in v1.6.0/v1.6.1/v1.6.2
+
+Huge thanks goes to @dsheehan for building and adding a web-ui for the bridge!
+
+- **NEW**: Web-UI on port `5000` (must add `- 5000:5000` to the ports section of your docker-compose.yml)
+  - 🏠 Home Assistant: Web-ui will be automatically configured and you can add it to your sidebar by enabling it on the info page for the add-on.
+- **CHANGED**: `mfa_token` is now `mfa_token.txt` on the docker version to match Home Assistant mode.
+- **FIXED**: AttributeError with an unsupported WYZEC1. #422
+- **FIXED**: FLASK_APP env error. #424 Thanks @dsheehan
+- **FIXED**: clean_name. #424 Thanks @dsheehan
+
+## Changes in v1.5.4
+
+- Auto fetch camera data if upgrading from older version without having to use `FRESH_DATA`. #418
+- Display DTLS on Wyze Cam Outdoors if base station has DTLS enabled.
+
 ## Changes in v1.5.3
 
 ⚠️ This version may require a one-time `FRESH_DATA` to generate the new authkey for compatibility with the WCO.
